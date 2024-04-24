@@ -1,0 +1,36 @@
+<!doctype html>
+{% load static%}
+<html lang="en" dir="ltr">
+	<head>
+		<!-- META DATA -->
+		<meta charset="UTF-8">
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        {% include 'components/customstyles.html' %}
+		{% block customstyles %}{% endblock customstyles %}
+
+    </head>
+
+	<body class="error-bg">
+
+		{% block class %}{% endblock class %}
+
+            {% comment %}
+			<!-- Loader -->
+			<div id="global-loader">
+				<img src="{% static ''%}assets/images/loader.svg" class="loader-img" alt="Loader">
+			</div>
+			<!-- /Loader -->
+			{% endcomment %}
+
+        	{% block body %}{% endblock body %}
+
+		</div>
+		<!-- BACKGROUND-IMAGE CLOSED -->
+
+        {% include 'components/customscripts.html' %}
+		{% block customscripts %}{% endblock customscripts %}
+
+    </body>
+</html>

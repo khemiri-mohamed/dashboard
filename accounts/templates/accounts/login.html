@@ -1,0 +1,86 @@
+{% extends 'components/custom-base.html' %}
+{% load static %}
+
+{% block customstyles %}
+    <link href="{% static '' %}assets/plugins/single-page/css/main.css" rel="stylesheet" type="text/css">
+    <link href="{% static '' %}assets/plugins/select2/select2.min.css" rel="stylesheet"/>
+    <link href="{% static '' %}assets/plugins/notify/css/notifIt.css" rel="stylesheet"/>
+{% endblock customstyles %}
+
+{% block class %}
+    <!-- BACKGROUND-IMAGE -->
+    <div class="login-img">
+{% endblock class %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block body %}
+    <!-- PAGE -->
+    <div class="page">
+        <div class="">
+            <!-- CONTAINER OPEN -->
+            <div class="col col-login mx-auto">
+                <div class="text-center">
+                    <a href="{% url 'accounts:login' %}">
+{#                        <img src="{% static '' %}assets/images/brand/logo.png" class="header-brand-img" alt="">#}
+                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 944.7 623.7" xml:space="preserve" height="50"><style type="text/css">.st0{fill:#008080;}.st1{fill:#F84960;}.st2{fill:#BCDDDE;}</style><g id="dots_copy"><circle class="st0" cx="150" cy="472.7" r="147.4"></circle><circle class="st1" cx="150" cy="150.8" r="147.4"></circle><circle class="st2" cx="472.3" cy="472.7" r="147.4"></circle><circle class="st2" cx="794.7" cy="472.7" r="147.4"></circle></g></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container-login100">
+                <div class="wrap-login100 p-0">
+                    <div class="card-body">
+                        <form id="login-form" class="login100-form">
+                            {% csrf_token %}
+                            <span class="login100-form-title">
+                                Login
+                            </span>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" id="username" name="username" placeholder="Username">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fe fe-user" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <div class="wrap-input100 validate-input">
+                                <input class="input100" type="password" id="password" name="password" placeholder="Password">
+                                <span class="focus-input100"></span>
+                                <span class="symbol-input100">
+                                    <i class="fe fe-lock" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                            <label class="custom-control custom-checkbox mt-4">
+                                <input type="checkbox" class="custom-control-input" id="id_remember" name="remember">
+                                <span class="custom-control-label" for="id_remember">Remember Me</span>
+                            </label>
+
+                            {% if request.GET.next %}
+                                <input type="hidden" id="next" name="next" value="{{ request.GET.next }}">
+                            {% endif %}
+
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn btn-primary">
+                                    <span>Login</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- CONTAINER CLOSED -->
+
+        </div>
+    </div>
+    <!-- End PAGE -->
+{% endblock body %}
+
+{% block customscripts %}
+    <script src="{% static '' %}assets/plugins/notify/js/notifIt.js"></script>
+    <script src="{% static '' %}assets/app-js/app-core.js"></script>
+    <script src="{% static '' %}assets/app-js/app-authentication.js"></script>
+{% endblock customscripts %}
+
+{% block scripts %}
+{% endblock scripts %}

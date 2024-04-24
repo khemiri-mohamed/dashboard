@@ -1,0 +1,97 @@
+{% extends 'components/base.html' %}
+{% load sorting_tags %}
+{% load humanize %}
+{% load static %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block body %}
+    <!-- PAGE-HEADER -->
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        {% comment %}
+        <div class="ms-auto pageheader-btn">
+            <div class="btn-group mt-2 mb-2">
+                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+                    <span><i class="fe fe-save"></i></span> Export <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'app-dashboard:export-xlsx' %}"><span><i class="fe fe-file"></i></span>XLSX</a></li>
+                    <li><a href="{% url 'app-dashboard:export-csv' %}"><span><i class="fe fe-file"></i></span>CSV</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endcomment %}
+    </div>
+    <!-- PAGE-HEADER END -->
+
+    <div class="row row-sm">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Charts</h3>
+                    <div id="echart_spinner" class="spinner1 mx-2" style="width: 20px;height: 20px;position: relative;margin: unset;"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>
+                    <div class="card-options">
+                        <input class="form-control" id="filter-by-chart" placeholder="search by date" type="text" style="width: 280px;">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="echart" class="chartsh"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row -->
+    <div class="row row-sm">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Brokerages</h3>
+                    <span id="count_items" class="badge bg-primary me-1 mb-1 mt-1 mx-3"></span>
+                    <div class="card-options">
+                        <label class="custom-switch me-2">
+                            <input id="filter_by_active_brokerages" type="checkbox" class="custom-switch-input">
+                            <span class="custom-switch-indicator"></span>
+                            <span class="custom-switch-description me-2">Active only</span>
+                        </label>
+                        <div class="form-group mb-1 me-2">
+                            <input class="form-control" id="filter-by-brokerage" placeholder="search by brokerage" type="text">
+                        </div>
+                        <div class="btn-list">
+                            <button class="action-btn btn btn-primary btn-icon text-white me-2 btn-group" data-value="new">
+                                <span><i class="fe fe-plus"></i></span> New Brokerage
+                            </button>
+                            {% comment %}
+                            <button id="delete_selected_btn" class="btn btn-danger btn-icon text-white me-2 btn-group disabled"><span><i class="fe fe-trash-2"></i></span>
+                                Delete Selected
+                            </button>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive export-table">
+                        <table id="base_datatable" class="table border-bottom text-nowrap text-md-nowrap table-hover table-bordered mg-b-0 w-100"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Row -->
+{% endblock body %}
+
+{% block modal %}
+    {% include 'modal/delete-modal.html' %}
+    {% include 'modal/dashboard-modal.html' %}
+{% endblock modal %}
+
+{% block scripts %}
+    <script src="{% static '' %}assets/plugins/echarts/echarts.js"></script>
+    <script src="{% static '' %}assets/app-js/dashboard/chart-statistic.js"></script>
+    <script src="{% static '' %}assets/app-js/dashboard/action-dashboard.js"></script>
+    <script src="{% static '' %}assets/app-js/dashboard/init-dashboard.js"></script>
+{% endblock scripts %}

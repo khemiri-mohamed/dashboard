@@ -1,0 +1,45 @@
+<div id="brokerage-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="brokerage-form" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">Email <span class="text-red">*</span></label>
+                            <input type="text" id="email" class="form-control" placeholder="Enter email name here...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">Password <span class="text-red">*</span></label>
+                            <input type="text" id="password" class="form-control" placeholder="Enter password here...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label">Account status <span class="text-red">*</span></label>
+                            <select class="form-control form-select select2" id="account_status" style="width: 100%">
+                                <option value="Success">Success</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Waiting">Waiting</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Reserved">Reserved</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal"><span><i
+                            class="fa fa-close"></i></span> Cancel
+                    </button>
+                    <button type="submit" class="btn btn-primary"><span><i class="fa fa-check"></i></span> Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

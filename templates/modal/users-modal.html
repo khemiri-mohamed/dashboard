@@ -1,0 +1,82 @@
+{% load i18n %}
+
+<div id="users-modal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1060;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="users-form">
+                <div class="modal-header">
+                    <h5 class="modal-title"><span class="badge bg-primary">New Users</span></h5>
+                    <button type="button" class="btn close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input type="text" id="username" class="form-control"
+                                       placeholder="Enter username here...">
+                            </div>
+                        </div>
+                        <div id="block-password" class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label fw-bold">Password</label>
+                                <div class="input-group">
+                                    <input type="password" id="password" class="form-control" placeholder="Enter password here...">
+                                    <span class="input-group-text btn btn-primary"><i class="fe fe-eye-off"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" id="first_name" class="form-control"
+                                       placeholder="Enter first name here...">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" id="last_name" class="form-control"
+                                       placeholder="Enter last name here...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal"><span><i class="fa fa-close"></i></span> Cancel</button>
+                    <button type="submit" class="btn btn-primary"><span><i class="fa fa-check"></i></span> Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="password-modal" class="modal fade" tabindex="-1" role="dialog" style="z-index: 1060;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="password-form">
+                <div class="modal-header">
+                    <h5 class="modal-title"><span class="badge bg-primary">New Password</span></h5>
+                    <button type="button" class="btn close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label fw-bold">New Password</label>
+                            <div class="input-group">
+                                <input type="password" id="new_password" class="form-control" placeholder="Enter New Password here...">
+                                <span class="input-group-text btn btn-primary"><i class="fe fe-eye-off"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal"><span><i class="fa fa-close"></i></span> Cancel</button>
+                    <button type="submit" class="btn btn-primary"><span><i class="fa fa-check"></i></span> Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

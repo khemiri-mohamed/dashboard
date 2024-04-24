@@ -1,0 +1,145 @@
+{% load static%}         
+
+<title>spotter</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+<link rel="shortcut icon" type="image/x-icon" href="{% static ''%}assets/images/brand/favicon.ico" />
+<link href="{% static ''%}assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="{% static ''%}assets/css/style.css" rel="stylesheet"/>
+<link href="{% static ''%}assets/css/dark-style.css" rel="stylesheet"/>
+<link href="{% static ''%}assets/css/skin-modes.css" rel="stylesheet" />
+<link href="{% static ''%}assets/css/sidemenu.css" rel="stylesheet" id="sidemenu-theme">
+<link href="{% static ''%}assets/plugins/p-scroll/perfect-scrollbar.css" rel="stylesheet" />
+<link href="{% static ''%}assets/css/icons.css" rel="stylesheet"/>
+<link href="{% static ''%}assets/plugins/sidebar/sidebar.css" rel="stylesheet">
+<link href="{% static ''%}assets/colors/color1.css" rel="stylesheet" id="theme" type="text/css" media="all">
+
+<link href="{% static '' %}assets/plugins/notify/css/notifIt.css" rel="stylesheet"/>
+<link href="{% static '' %}assets/plugins/fileuploads/css/fileupload.css" rel="stylesheet" type="text/css"/>
+<link href="{% static '' %}assets/plugins/select2/select2.min.css" rel="stylesheet"/>
+<link href="{% static '' %}assets/plugins/datatable/css/dataTables.bootstrap5.css" rel="stylesheet"/>
+<link href="{% static '' %}assets/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
+<link href="{% static '' %}assets/plugins/datatable/responsive.bootstrap5.css" rel="stylesheet"/>
+<link href="{% static '' %}assets/custom/css/flatpickr.min.css" rel="stylesheet"/>
+<link href="{% static '' %}assets/custom/css/dataTables.checkboxes.css" rel="stylesheet"/>
+
+<style>
+    table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_desc_disabled:before {
+    {#content: "\25b4" !important;#}
+    content: "\2191" !important;
+}
+
+table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after {
+    {#content: "\25be" !important;#}
+    content: "\2193" !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr:not(.parent) > td.dtr-control:before {
+    top: 30%;
+    left: 11px;
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    font-weight: bold;
+    content: "\2719" !important;
+    color: #6259ca !important;
+    background-color: transparent !important;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+    top: 30%;
+    left: 11px;
+    border: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    font-weight: bold;
+    content: "\268A" !important;
+    color: #6259ca !important;
+    background-color: transparent !important;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details > li {
+    border: unset;
+}
+
+.dtr-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.dtr-title::after {
+    content: ":";
+}
+
+.dtr-data {
+
+}
+
+.avatar-xxl {
+    width: 7rem;
+}
+
+.barcode-icon {
+    padding-right: 2rem;
+    background: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5.75C2 4.23122 3.23122 3 4.75 3H5.5C5.91421 3 6.25 3.33579 6.25 3.75C6.25 4.16421 5.91421 4.5 5.5 4.5H4.75C4.05964 4.5 3.5 5.05964 3.5 5.75V6.5C3.5 6.91421 3.16421 7.25 2.75 7.25C2.33579 7.25 2 6.91421 2 6.5V5.75ZM13.75 3.75C13.75 3.33579 14.0858 3 14.5 3H15.25C16.7688 3 18 4.23122 18 5.75V6.5C18 6.91421 17.6642 7.25 17.25 7.25C16.8358 7.25 16.5 6.91421 16.5 6.5V5.75C16.5 5.05964 15.9404 4.5 15.25 4.5H14.5C14.0858 4.5 13.75 4.16421 13.75 3.75ZM2.75 12.75C3.16421 12.75 3.5 13.0858 3.5 13.5V14.25C3.5 14.9404 4.05964 15.5 4.75 15.5H5.5C5.91421 15.5 6.25 15.8358 6.25 16.25C6.25 16.6642 5.91421 17 5.5 17H4.75C3.23122 17 2 15.7688 2 14.25V13.5C2 13.0858 2.33579 12.75 2.75 12.75ZM17.25 12.75C17.6642 12.75 18 13.0858 18 13.5V14.25C18 15.7688 16.7688 17 15.25 17H14.5C14.0858 17 13.75 16.6642 13.75 16.25C13.75 15.8358 14.0858 15.5 14.5 15.5H15.25C15.9404 15.5 16.5 14.9404 16.5 14.25V13.5C16.5 13.0858 16.8358 12.75 17.25 12.75ZM5.5 6C5.91421 6 6.25 6.33579 6.25 6.75V13.25C6.25 13.6642 5.91421 14 5.5 14C5.08579 14 4.75 13.6642 4.75 13.25V6.75C4.75 6.33579 5.08579 6 5.5 6ZM9.25 6.75C9.25 6.33579 8.91421 6 8.5 6C8.08579 6 7.75 6.33579 7.75 6.75V13.25C7.75 13.6642 8.08579 14 8.5 14C8.91421 14 9.25 13.6642 9.25 13.25V6.75ZM11.5 6C11.9142 6 12.25 6.33579 12.25 6.75V13.25C12.25 13.6642 11.9142 14 11.5 14C11.0858 14 10.75 13.6642 10.75 13.25V6.75C10.75 6.33579 11.0858 6 11.5 6ZM15.25 6.75C15.25 6.33579 14.9142 6 14.5 6C14.0858 6 13.75 6.33579 13.75 6.75V13.25C13.75 13.6642 14.0858 14 14.5 14C14.9142 14 15.25 13.6642 15.25 13.25V6.75Z' fill='%23212121'/%3E%3C/svg%3E%0A") no-repeat center right 0.5rem/1rem;
+}
+
+.was-validated .custom-select:invalid + .select2 .select2-selection{
+    border-color: #dc3545!important;
+}
+.was-validated .custom-select:valid + .select2 .select2-selection{
+    border-color: #198754!important;
+}
+*:focus{
+  outline:0px;
+}
+
+.bg-danger-custom{
+  background: #ffd6d6 !important
+}
+.bg-warning-custom{
+  background: #fff9d6 !important
+}
+
+{#body {#}
+{#    zoom: 80%;#}
+{#}#}
+{##}
+{#.modal-backdrop {#}
+{#  height: 100% !important;#}
+{#  width: 100% !important;#}
+{#}#}
+
+.form-help {
+    color: #ffffff;
+    background: rgba(34, 192, 60, 0.6);
+}
+
+.dark-mode .form-help {
+    color: #ffffff;
+    background: rgba(34, 192, 60, 0.6);
+}
+
+.no-calendar::-webkit-calendar-picker-indicator,
+.no-calendar::-webkit-inner-spin-button,
+.no-calendar::-webkit-outer-spin-button {
+    border-color: transparent;
+}
+
+{#.modal-xl {#}
+{#    max-width: 1400px;#}
+{#}#}
+
+
+.numpad-button {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    margin: 3px;
+}
+
+.select2-selection__rendered {
+    color: #0a0c0d !important;
+}
+</style>

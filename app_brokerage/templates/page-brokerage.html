@@ -1,0 +1,80 @@
+{% extends 'components/base.html' %}
+{% load sorting_tags %}
+{% load humanize %}
+{% load static %}
+
+{% block styles %}
+{% endblock styles %}
+
+{% block body %}
+    <!-- PAGE-HEADER -->
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Brokerage <span id="page-title"></span></h1>
+        </div>
+        <div class="ms-auto pageheader-btn">
+            <div class="btn-group mt-2 mb-2">
+                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown">
+                    <span><i class="fe fe-save"></i></span> Export <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'app-brokerage:export-xlsx' %}"><span><i class="fe fe-file"></i></span>XLSX</a></li>
+                    <li><a href="{% url 'app-brokerage:export-csv' %}"><span><i class="fe fe-file"></i></span>CSV</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- PAGE-HEADER END -->
+
+    <!-- Row -->
+    <div class="row row-sm">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Brokerages</h3>
+                    <span id="count_items" class="badge bg-primary me-1 mb-1 mt-1 mx-3"></span>
+                    <div class="card-options">
+                        <div class="me-2">
+                            <select class="form-control form-select select2" id="filter-by-account_status" placeholder="search by account status">
+                                <option value="">All</option>
+                                <option value="Success">Success</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Waiting">Waiting</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Reserved">Reserved</option>
+                            </select>
+                        </div>
+                        <div class="btn-list">
+                            <a id="statistic-page" class="btn btn-primary btn-icon rounded-11 me-2">statistic <i class="fe fe-bar-chart-2"></i></a>
+                            <a id="cron-page" class="btn btn-primary btn-icon rounded-11 me-2">cron <i class="fe fe-calendar"></i></a>
+                            <button class="action-btn btn btn-primary btn-icon text-white me-2 btn-group" data-value="new">
+                                <span><i class="fe fe-plus"></i></span> New Account
+                            </button>
+                            {% comment %}
+                            <button id="delete_selected_btn" class="btn btn-danger btn-icon text-white me-2 btn-group disabled"><span><i class="fe fe-trash-2"></i></span>
+                                Delete Selected
+                            </button>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive export-table">
+                        <table id="base_datatable" class="table border-bottom text-nowrap text-md-nowrap table-hover table-bordered mg-b-0 w-100"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Row -->
+{% endblock body %}
+
+{% block modal %}
+    {% include 'modal/delete-modal.html' %}
+    {% include 'modal/brokerage-modal.html' %}
+{% endblock modal %}
+
+{% block scripts %}
+    <script src="{% static '' %}assets/app-js/brokerage/action-brokerage.js"></script>
+    <script src="{% static '' %}assets/app-js/brokerage/init-brokerage.js"></script>
+{% endblock scripts %}
